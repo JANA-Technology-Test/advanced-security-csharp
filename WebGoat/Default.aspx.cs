@@ -35,6 +35,14 @@ namespace OWASP.WebGoat.NET
 
             // Write viewState to Screen 
             ViewState["Session"] = Session.SessionID;
+
+            AeeClass myClass = new AeeClass();
+            myClass.AuthenticateUser("username", "abc123");
+            myClass.MethodWithMagicStrings("somethingO");
+            myClass.MethodWithoutDispose("something");
+            myClass.UncheckedIndexRange(1000);
+            myClass.SOME_PROPERTY = "hello";
+            myClass.InfiniteLoop();
         }
     }
 }
