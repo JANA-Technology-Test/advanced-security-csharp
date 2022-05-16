@@ -522,7 +522,7 @@
     <Content Include="Content\VerbTamperingAttack.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\AeeClass.cs" />
+    <Compile Include="App_Code\AeeClass.cs" />
     <Compile Include="App_Code\CustomerLoginData.cs" />
     <Compile Include="Content\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
