@@ -1,8 +1,7 @@
-name: Build
+name: SonarCloud Build
 on:
   push:
-    branches:
-      - main
+    branches: [main, test-sonar-cloud]
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -42,6 +41,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
+          nuget restore
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"JANA-Technology-Test_advanced-security-csharp" /o:"jana-technology-test" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
